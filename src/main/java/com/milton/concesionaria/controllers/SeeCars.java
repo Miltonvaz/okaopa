@@ -39,7 +39,7 @@ public class SeeCars {
         private TableColumn<Automovil,String > texserieMotor;
 
         @FXML
-        private TableColumn<?, ?> trxtcat;
+        private TableColumn<Automovil, String> trxtcat;
 
         @FXML
         private Button bttonsalir;
