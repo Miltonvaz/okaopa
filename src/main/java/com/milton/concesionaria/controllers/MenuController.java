@@ -1,87 +1,56 @@
+
 package com.milton.concesionaria.controllers;
 
+import com.gluonhq.charm.glisten.control.BottomNavigationButton;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.milton.concesionaria.HelloApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
- public class MenuController {
+public class MenuController {
 
-        @FXML
-        private Button bttonOnclient;
+         @FXML
+         private ResourceBundle resources;
 
-        @FXML
-        private Button bttonOnGerent;
-         private HelloApplication mainApplication;
-         private HelloApplication mainApplication1;
+         @FXML
+         private URL location;
 
-        @FXML
-        void btonOnClient(MouseEvent event) {
-            mainApplication.openEmployeeWindow();
+         @FXML
+         private BottomNavigationButton gerentButton;
 
-        }
+         @FXML
+         private BottomNavigationButton empleadoButton;
+    @FXML
+         void onClickButton(MouseEvent event) {
+            HelloApplication.newStage("menuGerente-view","App - view Client");
+         }
 
-        @FXML
-        void bttonOnGerent(MouseEvent event1) {
-            mainApplication1.openManagerMenu();
-        }
+         @FXML
+         void onClickGerenteButton(MouseEvent event) throws IOException {
+             FXMLLoader gerenteLoader = new FXMLLoader(getClass().getResource("menu-gerente-view.fxml"));
+                Parent gerenteRoot = gerenteLoader.load();
+              Stage gerenteStage = new Stage();
+             gerenteStage.setScene(new Scene(gerenteRoot));
+              gerenteStage.show();
+         }
 
-        @FXML
-        void bttonOnclinet(ActionEvent event) {
+         @FXML
+         void initialize() {
+             assert gerentButton != null : "fx:id=\"gerentButton\" was not injected: check your FXML file 'menu-view.fxml'.";
+             assert empleadoButton != null : "fx:id=\"empleadoButton\" was not injected: check your FXML file 'menu-view.fxml'.";
 
-        }
-     public void setMainApplication(HelloApplication mainApplication) {
-         this.mainApplication = mainApplication;
-     }
-     public void setMainApplication1(HelloApplication mainApplication1) {
-         this.mainApplication1 = mainApplication1;
-     }
-     public void BottonseeOnCars(ActionEvent actionEvent) {
-     }
+         }
 
-     public void bottonOnModi(ActionEvent actionEvent) {
-     }
-
-     public void BottonOnseeCars(MouseEvent mouseEvent) {
-     }
-
-     public void bottonModiCars(MouseEvent mouseEvent) {
-     }
-
-     public void bottonOnAdd(MouseEvent mouseEvent) {
-     }
-
-     public void bottonOnAddVend(ActionEvent actionEvent) {
-     }
-
-     public void bottonAddOnVend(MouseEvent mouseEvent) {
-     }
-
-
-     public void bttonOnVender(ActionEvent actionEvent) {
-     }
-
-     public void bttonOnagendar(ActionEvent actionEvent) {
-     }
-
-     public void OnsSeBtto(ActionEvent actionEvent) {
-     }
-
-     public void OnbttonVender(MouseEvent mouseEvent) {
-     }
-
-     public void OnbttonAngendar(MouseEvent mouseEvent) {
-     }
-
-     public void OnbttonSee(MouseEvent mouseEvent) {
-     }
- }
+    public void init(Stage stageRoot) {
+    }
+}
 
 

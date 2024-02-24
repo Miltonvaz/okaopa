@@ -1,15 +1,16 @@
 package com.milton.concesionaria.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.milton.concesionaria.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
-public class MenuGerenteController {
-
-    public class MenuGerenteView {
-
+public class MenuGerenteController extends Parent {
         @FXML
         private ResourceBundle resources;
 
@@ -25,19 +26,27 @@ public class MenuGerenteController {
         @FXML
         private Button bttonSee;
 
-        @FXML
-        void OnbttonAngendar(MouseEvent event) {
+        private Stage mainStage;
 
-        }
-
-        @FXML
-        void OnbttonSee(MouseEvent event) {
-
+        public void setMainStage(Stage stage) {
+                this.mainStage = stage;
         }
 
         @FXML
         void OnbttonVender(MouseEvent event) {
+                HelloApplication.cargarInterfaz("venta-view");
+                mainStage.close();
+        }
 
+        @FXML
+        void OnbttonAngendar(MouseEvent event) {mainStage.close();
+                HelloApplication.cargarInterfaz("cita-view");
+        }
+
+        @FXML
+        void OnbttonSee(MouseEvent event) {
+                HelloApplication.cargarInterfaz("");
+                mainStage.close();
         }
 
         @FXML
@@ -64,4 +73,4 @@ public class MenuGerenteController {
         }
     }
 
-}
+

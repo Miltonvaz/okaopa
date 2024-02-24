@@ -1,6 +1,9 @@
 package com.milton.concesionaria;
 
 import com.milton.concesionaria.controllers.MenuController;
+import com.milton.concesionaria.controllers.MenuGerenteController;
+import com.milton.concesionaria.controllers.MenuVendedorController;
+import com.milton.concesionaria.controllers.VentaController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,84 +13,76 @@ import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
+import java.net.URL;
+ public class HelloApplication extends Application {
 
-public class HelloApplication extends Application {
+        private static Stage stageView;
+        private static Stage stageRoot;
 
-    private Stage stageRoot;
+        @Override
+        public void start(Stage stage) throws IOException {
+            stageRoot = stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
+            Parent root = fxmlLoader.load();
+            MenuController menuController = fxmlLoader.getController();
+            menuController.init(stageRoot);
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        stageRoot = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-view.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-        if (BootstrapFX.bootstrapFXStylesheet() != null) {
+            Scene scene = new Scene(root);
             scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
+            stage.setTitle("NameApplication - Home");
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
         }
 
-        stage.setTitle("NameApplication - Home");
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+        public static void newStage(String fxml, String title) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml + ".fxml"));
+                Parent root = fxmlLoader.load();
+                Stage newStage = new Stage();
+                newStage.setScene(new Scene(root));
 
-        MenuController controller = fxmlLoader.getController();
-        controller.setMainApplication(this);
-    }
+                if ("menuVendedor-view".equals(fxml)) {
+                    MenuVendedorController vendedorController = fxmlLoader.getController();
+                    vendedorController.setMainStage(newStage);
+                } else if ("menuGerente-view".equals(fxml)) {
+                    MenuGerenteController menuGerenteController = fxmlLoader.getController();
+                    menuGerenteController.setMainStage(newStage);
 
-    public Stage getStageRoot() {
-        return stageRoot;
-    }
+                }
 
-    public void openEmployeeWindow() {
-        newStage("menuGerente-view", "MenuGerente");
-        closeCurrentStage();
-    }
-
-    public void openManagerMenu() {
-        openMenu("menuVendedor-view", "MenuVendedor");
-        closeCurrentStage();
-    }
-
-    public static void newStage(String fxml, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxml + ".fxml"));
-            Parent root = loader.load();
-
-            Stage stageView = new Stage();
-            stageView.setTitle(title);
-            stageView.setScene(new Scene(root));
-            stageView.initModality(Modality.APPLICATION_MODAL);
-            stageView.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+                newStage.initOwner(stageRoot);
+                newStage.initModality(Modality.APPLICATION_MODAL);
+                newStage.showAndWait();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
-    public void openMenu(String fxml, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxml + ".fxml"));
-            Parent root = loader.load();
+     public static void cargarInterfaz(String fxmlFile) {
+         try {
+             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+             Parent root = loader.load();
 
-            Stage stageView = new Stage();
-            stageView.setTitle(title);
-            stageView.setScene(new Scene(root));
-            stageView.initModality(Modality.APPLICATION_MODAL);
-            stageView.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+             loader.setController(new HelloApplication());
+
+             Scene scene = new Scene(root);
+
+             Stage stage = new Stage();
+             stage.setScene(scene);
+             stage.show();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
+        public static Stage getStageView() {
+            return stageView;
+        }
+
+        public static void main(String[] args) {
+            launch();
         }
     }
 
-
-
-    private void closeCurrentStage() {
-        stageRoot.close();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-}
 
         /*
             Scanner keyboard = new Scanner(System.in);

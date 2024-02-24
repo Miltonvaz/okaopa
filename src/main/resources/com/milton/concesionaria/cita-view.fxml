@@ -26,18 +26,18 @@
       <VBox layoutX="171.0" layoutY="132.0" prefHeight="389.0" prefWidth="594.0" spacing="5.0">
          <children>
             <Label text="NOMBRE:" />
-            <TextField />
+            <TextField fx:id="texrname" />
             <Label layoutX="10.0" layoutY="10.0" text="APELLIDO:" />
-            <TextField layoutX="10.0" layoutY="31.0" />
+            <TextField fx:id="textapell" layoutX="10.0" layoutY="31.0" />
             <Label layoutX="10.0" layoutY="62.0" text="NÚMERO TELEFONICO:" />
-            <TextField layoutX="10.0" layoutY="83.0" />
+            <TextField fx:id="textnumber" layoutX="10.0" layoutY="83.0" />
             <Label layoutX="10.0" layoutY="114.0" text="CORREO ELECTRONICO:" />
-            <TextField layoutX="10.0" layoutY="135.0" />
+            <TextField fx:id="textcorreo" layoutX="10.0" layoutY="135.0" />
             <Label layoutX="10.0" layoutY="166.0" text="CARRO DE PRUEBA:" />
-            <TextField layoutX="10.0" layoutY="187.0" />
+            <TextField fx:id="textcarro" layoutX="10.0" layoutY="187.0" />
             <Label layoutX="10.0" layoutY="218.0" text="FECHA:" />
-            <DatePicker />
-            <MenuButton mnemonicParsing="false" text="HORA:">
+            <DatePicker fx:id="textfecha" />
+            <MenuButton fx:id="text3" mnemonicParsing="false" text="HORA:">
               <items>
                 <MenuItem mnemonicParsing="false" text="8:00-12:00" />
                 <MenuItem mnemonicParsing="false" text="12:00-3:00" />
@@ -51,12 +51,12 @@
       </VBox>
       <HBox layoutX="302.0" layoutY="586.0" prefHeight="61.0" prefWidth="312.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="140.0" style="-fx-background-color: #2AFF00;" text="Agendar">
+            <Button fx:id="bttonaceptar" mnemonicParsing="false" onAction="#bttonaceptar" onMouseClicked="#onbttonaceptar" prefHeight="65.0" prefWidth="140.0" style="-fx-background-color: #2AFF00;" text="Agendar">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button id="bton_salir " mnemonicParsing="false" prefHeight="79.0" prefWidth="140.0" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
+            <Button id="bton_salir " fx:id="bttonsalir" mnemonicParsing="false" onAction="#bttonsalir" onMouseClicked="#onbttonsalir" prefHeight="79.0" prefWidth="140.0" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

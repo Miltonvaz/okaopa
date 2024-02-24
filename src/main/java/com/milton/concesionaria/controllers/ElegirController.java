@@ -29,31 +29,31 @@ public class ElegirController {
 
         @FXML
         private void initialize() {
-            // Puedes agregar lógica de inicialización aquí
+
         }
 
         @FXML
         private void handleDeportivoButtonClick() {
-            // Lógica cuando se hace clic en el botón deportivoButton
+
             System.out.println("Clic en Deportivo");
-            // Puedes agregar más lógica según sea necesario
+
         }
 
         @FXML
         private void handleCamionetaButtonClick() {
-            // Lógica cuando se hace clic en el botón camionetaButton
+
             System.out.println("Clic en Camioneta");
-            // Puedes agregar más lógica según sea necesario
+
         }
 
         @FXML
         private void handleSedanButtonClick() {
-            // Lógica cuando se hace clic en el botón sedanButton
+
             System.out.println("Clic en Sedán");
-            // Puedes agregar más lógica según sea necesario
+
         }
 
-        // Otros métodos y lógica según sea necesario
+
     }
 
 

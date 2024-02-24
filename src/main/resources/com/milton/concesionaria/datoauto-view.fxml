@@ -26,59 +26,59 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="tex1" />
             <Label prefHeight="21.0" prefWidth="102.0" text="Color:">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text2" />
             <Label prefHeight="21.0" prefWidth="74.0" text="Año:">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text3" />
             <Label prefHeight="21.0" prefWidth="109.0" text="Motor:">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text4" />
             <Label prefHeight="21.0" prefWidth="91.0" text="Precio:">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text5" />
             <Label text="Serie de Motor:">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text6" />
             <Label text="Velocidad Maxima: ">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text7" />
             <Label text="Caballos de Fuerza">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="text8" />
          </children>
       </VBox>
       <HBox layoutX="266.0" layoutY="701.0" prefHeight="52.0" prefWidth="280.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="125.0" style="-fx-background-color: #14FF01;" text="Aceptar">
+            <Button fx:id="bttonaceptar" mnemonicParsing="false" onAction="#bttonaceptar" onMouseClicked="#onbttonaceptar" prefHeight="64.0" prefWidth="125.0" style="-fx-background-color: #14FF01;" text="Aceptar">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="68.0" prefWidth="125.0" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
+            <Button fx:id="Bttonsalir" mnemonicParsing="false" onAction="#Bttonsalir" onMouseClicked="#onBttonsalir" prefHeight="68.0" prefWidth="125.0" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
